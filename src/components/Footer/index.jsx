@@ -1,7 +1,11 @@
+import logoWhite from '../../assets/logoWhite.png'
+import './Footer.scss'
+
 function Footer() {
   return (
-    <footer>
-      Footer
+    <footer className="footer">
+      <img src={logoWhite} alt="Logo Kasa" />
+      <p>© 2020 Kasa. All rights reserved</p>
     </footer>
   )
 }

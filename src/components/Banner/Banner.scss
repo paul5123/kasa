@@ -1,0 +1,26 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 223px;
+  border-radius: 25px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+  }
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,12 @@
+.home {
+    margin: 50px 100px;
+}
+.housing-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  padding: 50px;
+  margin-top: 40px;
+  border-radius: 25px;
+  background-color: #f6f6f6;
+}

@@ -1,0 +1,11 @@
+.about {
+  display: flex;
+  flex-direction: column;
+ gap: 30px;
+  margin: 50px 100px;
+
+&__collapse {
+        width: 76%;
+        margin: 0 auto;
+}
+}

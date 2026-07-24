@@ -1,3 +1,82 @@
 .housing {
-    margin: 50px 100px;
+  margin: 50px 100px;
+
+  &__information {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-top: 30px;
+  }
+
+  &__details {
+    h1 {
+      margin: 0;
+
+      color: #ff6060;
+      font-size: 36px;
+      font-weight: 500;
+    }
+  }
+
+  &__location {
+    margin: 8px 0 20px;
+
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__tag {
+    min-width: 115px;
+    padding: 3px 15px;
+
+    border-radius: 10px;
+
+    background-color: #ff6060;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__host {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    p {
+      width: 95px;
+      margin: 0;
+
+      color: #ff6060;
+      font-size: 18px;
+      text-align: right;
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  &__collapses {
+    display: flex;
+    gap: 75px;
+
+    margin-top: 24px;
+
+    .collapse {
+      width: 50%;
+    }
+  }
 }

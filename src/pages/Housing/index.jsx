@@ -1,14 +1,35 @@
-import { useParams } from 'react-router-dom'
-import logements from '../../data/logements.json'
-import Slideshow from '../../components/Slideshow'
-import Collapse from '../../components/Collapse'
-import Rating from '../../components/Rating'
-import './Housing.scss'
+import { useEffect, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
+import { getHousingById } from "../../services/housingService";
+import Slideshow from "../../components/Slideshow";
+import Collapse from "../../components/Collapse";
+import Rating from "../../components/Rating";
+import "./Housing.scss";
 
 function Housing() {
-  const { id } = useParams()
+  const { id } = useParams();
 
-  const housing = logements.find((logement) => logement.id === id)
+  const [housing, setHousing] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadHousing() {
+      const housingData = await getHousingById(id);
+
+      setHousing(housingData);
+      setIsLoading(false);
+    }
+
+    loadHousing();
+  }, [id]);
+
+  if (isLoading) {
+    return <p>Chargement...</p>;
+  }
+
+  if (!housing) {
+    return <Navigate to="/error" replace />;
+  }
 
   return (
     <div className="housing">
@@ -21,38 +42,36 @@ function Housing() {
 
           <div className="housing__tags">
             {housing.tags.map((tag) => (
-              <span className="housing__tag" key={tag}>{tag}</span>
+              <span className="housing__tag" key={tag}>
+                {tag}
+              </span>
             ))}
           </div>
         </div>
 
-        <div className="housing__host">
-          <p>{housing.host.name}</p>
-          <img
-            src={housing.host.picture}
-            alt={`Portrait de ${housing.host.name}`}
-          />
-        </div>
+        <div className="housing__owner">
+          <div className="housing__host">
+            <p>{housing.host.name}</p>
 
-        <div className='housing__rating'>
-          <Rating rating={housing.rating} />
+            <img
+              src={housing.host.picture}
+              alt={`Portrait de ${housing.host.name}`}
+            />
+          </div>
 
+          <div className="housing__rating">
+            <Rating rating={housing.rating} />
+          </div>
         </div>
       </div>
 
       <div className="housing__collapses">
-        <Collapse
-          title="Description"
-          content={housing.description}
-        />
+        <Collapse title="Description" content={housing.description} />
 
-        <Collapse
-          title="Équipements"
-          content={housing.equipments}
-        />
+        <Collapse title="Équipements" content={housing.equipments} />
       </div>
     </div>
-  )
+  );
 }
 
-export default Housing
+export default Housing;

@@ -79,4 +79,10 @@
       width: 50%;
     }
   }
+  &__owner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
 }

@@ -1,26 +1,46 @@
 .error {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: #ff6060;
 
   &__code {
-    margin: 80px 0 40px;
+    margin: 139px 0;
+    color: #ff6060;
     font-size: 288px;
-    font-weight: 700;
   }
 
   &__message {
     margin: 0;
+    color: #ff6060;
     font-size: 36px;
-    font-weight: 500;
   }
 
   &__link {
-    margin: 120px 0;
+    margin: 139px 0;
     color: black;
     font-size: 18px;
-    text-decoration: underline;
+  }
+}
+@media screen and (max-width: 768px) {
+  .error {
+    padding: 0 20px;
+
+    &__code {
+      margin: 113px 0 113px;
+      font-size: 96px;
+    }
+
+    &__message {
+      max-width: 260px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    &__link {
+      margin: 113px 0;
+      font-size: 14px;
+    }
   }
 }

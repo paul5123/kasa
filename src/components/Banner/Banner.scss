@@ -1,26 +1,42 @@
 .banner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 223px;
+  overflow: hidden;
   border-radius: 25px;
   background-position: center;
   background-size: cover;
-  position: relative;
-  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+  }
 
   h1 {
     position: relative;
     z-index: 1;
+    margin: 0;
     color: white;
     font-size: 48px;
     font-weight: 700;
   }
 }
 
-.banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+@media screen and (max-width: 768px) {
+  .banner {
+    justify-content: flex-start;
+    height: 111px;
+    padding: 0 16px;
+    border-radius: 10px;
+
+    h1 {
+      max-width: 230px;
+      font-size: 24px;
+      line-height: 1;
+    }
+  }
 }

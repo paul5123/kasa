@@ -3,8 +3,17 @@
   display: block;
   height: 340px;
   overflow: hidden;
+
   border-radius: 10px;
   color: white;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.6));
+  }
 
   img {
     width: 100%;
@@ -14,10 +23,18 @@
 
   h2 {
     position: absolute;
+    z-index: 1;
     right: 20px;
     bottom: 20px;
     left: 20px;
     margin: 0;
     font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    height: 255px;
   }
 }

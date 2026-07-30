@@ -1,5 +1,9 @@
 .housing {
-  margin: 50px 100px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 50px auto 0;
+  padding: 0 20px;
+
 
   &__information {
     display: flex;
@@ -85,4 +89,75 @@
     align-items: flex-end;
     gap: 20px;
 }
+}
+@media (max-width: 768px) {
+  .housing {
+    width: auto;
+    margin: 27px 20px 0;
+    padding: 0;
+  
+
+    &__information {
+      flex-direction: column;
+      margin-top: 15px;
+    }
+
+    &__details {
+      width: 100%;
+
+      h1 {
+        font-size: 18px;
+        line-height: 1.4;
+      }
+    }
+
+    &__location {
+      margin: 5px 0 10px;
+
+      font-size: 14px;
+    }
+
+    &__tag {
+      min-width: auto;
+      padding: 3px 12px;
+
+      border-radius: 5px;
+
+      font-size: 10px;
+    }
+
+    &__owner {
+      width: 100%;
+      margin-top: 16px;
+
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__host {
+      gap: 8px;
+
+      p {
+        width: 70px;
+        font-size: 12px;
+      }
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    &__collapses {
+      flex-direction: column;
+      gap: 0;
+
+      margin-top: 15px;
+
+      .collapse {
+        width: 100%;
+      }
+    }
+  }
 }

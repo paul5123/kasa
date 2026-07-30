@@ -1,12 +1,29 @@
 .home {
-    margin: 50px 100px;
+  max-width: 1240px;
+  margin: 50px auto;
+  padding: 0 20px;
 }
+
 .housing-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
-  padding: 50px;
+  gap: 50px 60px;
   margin-top: 40px;
+  padding: 50px;
   border-radius: 25px;
   background-color: #f6f6f6;
+}
+
+@media screen and (max-width: 768px) {
+  .home {
+    margin: 25px auto;
+  }
+
+  .housing-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 22px;
+    padding: 0;
+    background-color: transparent;
+  }
 }

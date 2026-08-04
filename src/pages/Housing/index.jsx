@@ -10,26 +10,30 @@ function Housing() {
   const { id } = useParams();
 
   const [housing, setHousing] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    async function loadHousing() {
-      const housingData = await getHousingById(id);
+useEffect(() => {
+  async function loadHousing() {
+    const housingData = await getHousingById(id);
 
+    if (!housingData) {
+      setHousing(false); 
+    } else {
       setHousing(housingData);
-      setIsLoading(false);
     }
-
-    loadHousing();
-  }, [id]);
-
-  if (isLoading) {
-    return <p>Chargement...</p>;
   }
 
-  if (!housing) {
-    return <Navigate to="/error" replace />;
-  }
+  loadHousing();
+}, [id]);
+
+if (housing === null) {
+  return <p>Chargement...</p>;
+}
+
+if (housing === false) {
+  return <Navigate to="/error" replace />;
+}
+
+
 
   return (
     <div className="housing">
